@@ -1,8 +1,12 @@
-import express from "express";
-const app = express();
- 
-app.get("/", function (req, res) {
-  res.send("Hello World");
-});
- 
-app.listen(3000);
+import { setupServer } from './server';
+import { makeUsersModule, makeGamesModule } from './modules';
+
+async function main() {
+  const server = setupServer();
+
+  // instance modules
+  makeUsersModule(server);
+  makeGamesModule(server);
+}
+
+main();
