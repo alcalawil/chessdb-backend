@@ -4,7 +4,8 @@
   "description": "chess database manager",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon -r dotenv/config src/main.ts",
+    "dev": "nodemon -r dotenv/config src/main.ts",
+    "dev:docker": "nodemon -L src/main.ts",
     "lint": "eslint . --fix",
     "build": "node ./build.js"
   },
