@@ -4,7 +4,7 @@
   "description": "chess database manager",
   "main": "server.js",
   "scripts": {
-    "start": "ts-node -r dotenv/config src/main.ts",
+    "start": "nodemon -r dotenv/config src/main.ts",
     "lint": "eslint . --fix",
     "build": "node ./build.js"
   },
@@ -20,6 +20,7 @@
     "@typescript-eslint/parser": "^5.16.0",
     "dotenv": "^16.0.0",
     "eslint": "^8.11.0",
+    "nodemon": "^2.0.15",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.2"
   },

@@ -26,7 +26,7 @@ export interface IGame {
 
 export interface IGameStorage {
 	createGame: (headers: IGameHeaders, moves: string) => Promise<IGame>;
-	searchGames: (filter: IGameHeaders) => Promise<IGame[]>;
+	searchGames: (filter: IGameHeaders) => Promise<IGame[]> | Promise<any>;
 	deleteGames?: (filter: IGameHeaders) => Promise<IGame[]>;
 	deleteGame?: (id: string) => Promise<IGame>;
 	getGame?: (id: string) => Promise<IGame>;

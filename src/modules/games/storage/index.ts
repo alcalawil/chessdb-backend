@@ -1,3 +1,3 @@
 import { makeGameStorage } from "./gameStorage";
 
-const gameStorage = makeGameStorage();
+export const gameStorage = makeGameStorage();

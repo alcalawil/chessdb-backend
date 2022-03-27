@@ -3,7 +3,9 @@ import { gameService } from '../services';
 
 export async function addPGNGames(req: Request, res: Response) {
 	try {
-		const pgnArray = req.body
+		const pgnArray = req.body.map((encodedPgn: string) => {
+			return Buffer.from(encodedPgn, 'base64').toString('utf8');;  
+		});
 
 		// TODO: Validate pgnArray
 
@@ -17,9 +19,10 @@ export async function addPGNGames(req: Request, res: Response) {
 
 export async function searchGame(req: Request, res: Response) {
 	try {
-		const filter = { };
+		const filter = req.query;
+		
 		const games = await gameService.searchGames(filter);
-		res.status(200).json({ message: 'searchGame', games });
+		res.status(200).json({ message: `found ${games.length} games`, games });
 	} catch (e: any) {
 		console.log(e);
 		res.status(500).json({ error: e.message });
